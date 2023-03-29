@@ -1,0 +1,12 @@
+{% extends 'block.html' %}
+{% block title %} Strona główna {% endblock %}
+{% block page %}
+
+<h1>Szafa</h1>
+<div>
+    {% for cloth in object_list %}
+        <p> {{ cloth.name }} </p>
+    {% endfor %}
+    Ilość: {{ object_list|length }}
+</div>
+{% endblock %}

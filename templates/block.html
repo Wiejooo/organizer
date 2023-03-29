@@ -7,6 +7,9 @@
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
-{% block page %} {% endblock %}
+    <a href="{% url 'main_page' %}">Strona główna</a>
+    <a href="{% url 'wardrobe' %}">Szafa</a>
+    <a href="{% url 'add' %}">Dodaj</a>
+    {% block page %} {% endblock %}
 </body>
 </html>

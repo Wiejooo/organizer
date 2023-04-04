@@ -1,0 +1,14 @@
+{% extends 'block.html' %}
+{% block title %} Strona główna {% endblock %}
+{% block page %}
+
+<h1>Dodaj ubranie:</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit">
+</form>
+
+
+{% endblock %}

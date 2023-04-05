@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView, DetailView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from organizationalAPP.forms import AddForm
 from organizationalAPP.models import Clothes
+from organizationalAPP.forms import ClothesForm
 
 
 class MainView(TemplateView):
@@ -26,6 +27,9 @@ class ClothDetailView(DetailView):
     template_name = "detail.html"
     context_object_name = "cloth"
 
+    def get_context_data(self, **kwargs):
+        return super().get_context_data(**kwargs)
+
 
 class AddClothView(CreateView):
     """Dodanie ubrania"""
@@ -41,5 +45,11 @@ class ClothEditView(UpdateView):
 
     model = Clothes
     template_name = "edit.html"
-    fields = ["name", "size"]
+    form_class = ClothesForm
     success_url = "/notebook/wardrobe"
+
+class ClothDeleteView(DeleteView):
+    model = Clothes
+    template_name = 'delete_cloth.html'
+    success_url = '/notebook/wardrobe'
+

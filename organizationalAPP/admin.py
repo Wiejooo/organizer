@@ -1,7 +1,6 @@
 from django.contrib import admin
 
 from organizationalAPP import models
-from organizationalAPP.models import Clothes
 
 
 @admin.register(models.Clothes)

@@ -8,7 +8,9 @@
     <a href="{% url 'cloth-detail' slug=cloth.slug %}">
         <h2>{{ cloth.name }}</h2>
     </a>
+    <a href="{% url 'edit' slug=cloth.slug %}">Edytuj</a>
+    <a href="{% url 'delete' slug=cloth.slug %}">Usuń</a>
     {% endfor %}
-    Ilość: {{ clothes|length }}
+    <br>Ilość: {{ clothes|length }}
 </div>
 {% endblock %}

@@ -1,14 +1,47 @@
 {% extends 'block.html' %}
 {% load static%}
-{% block head %} 
-<link rel="stylesheet" href="basic.css">
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto:wght@100&display=swap" rel="stylesheet">
-{% endblock %}
 
 {% block title %} Strona główna {% endblock %}
 
 {% block page %}
 <div class="container">
+    <div class="navbar">
+        <img src="{% static 'images/logo.png' %}" class="logo">
+        <nav>
+            <ul>
+                <li><a href="{% url 'main_page' %}">STRONA GŁÓWNA</a></li>
+                <li><a href="{% url 'wardrobe' %}">SZAFA</a></li>
+                <li><a href="{% url 'add' %}">DODAJ</a></li>
+            </ul>
+        </nav>
+        <img src="{% static 'images/menu.png' %}" class="menu-icon">
+    </div>
 
+    <div class="row">
+        <div class="col">
+            <h1>Organizator</h1>
+            <p>Tu będzie tekst o ciuchach</p>
+            <button type="button">Przycisk</button>
+        </div>
+        <div class="col">
+            <div class="card card1">
+                <h5>Szafa</h5>
+                <p>Wszystkie Twoje ubrania</p>
+            </div>
+            <div class="card card2">
+                <h5>Kategorie</h5>
+                <p>Wszystkie Twoje kategorie ubrań</p>
+            </div>
+            <div class="card card3">
+                <h5>Strony</h5>
+                <p>Strony gdzie sprzedajesz ubrania</p>
+            </div>
+            <div class="card card4">
+                <h5>Notatki</h5>
+                <p>Dziennik Twoich zapisków</p>
+            </div>
+        </div>
+
+    </div>
 </div>
 {% endblock %}

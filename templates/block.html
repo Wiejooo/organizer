@@ -5,12 +5,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'basic.css' %}">
     <title>{% block title %} {% endblock %}</title>
-    {% block head %} {% endblock %}
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <!-- NIE DZIAŁA LINK FONTU -->
 </head>
-<body class="container" style="background-image: url('{% static 'images/start.jpg' %}');">
-    <a href="{% url 'main_page' %}">Strona główna</a>
-    <a href="{% url 'wardrobe' %}">Szafa</a>
-    <a href="{% url 'add' %}">Dodaj</a>
+<body>
     {% block page %} {% endblock %}
 </body>
 </html>

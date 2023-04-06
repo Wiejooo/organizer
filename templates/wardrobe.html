@@ -1,16 +1,29 @@
 {% extends 'block.html' %}
-{% block title %} Strona główna {% endblock %}
-{% block page %}
 
-<h1>Szafa</h1>
+{% block title %} Szafa {% endblock %}
+
+{% block page %}
+<!-- <div class='container'> -->
 <div>
-    {% for cloth in clothes %}
-    <a href="{% url 'cloth-detail' slug=cloth.slug %}">
-        <h2>{{ cloth.name }}</h2>
-    </a>
-    <a href="{% url 'edit' slug=cloth.slug %}">Edytuj</a>
-    <a href="{% url 'delete' slug=cloth.slug %}">Usuń</a>
-    {% endfor %}
-    <br>Ilość: {{ clothes|length }}
+    <div>
+        {% for cloth in clothes %}
+        <div class="cloth-bar">
+            <div class="cloth-name">
+                <a href="{% url 'cloth-detail' slug=cloth.slug %}">
+                    <h2>{{ cloth.name }}</h2>
+                </a>
+            </div>
+            <div id="bottom">
+                <form action="{% url 'edit' slug=cloth.slug %}">
+                    <input type="submit" value="Edytuj">
+                </form>
+                <form action="{% url 'delete' slug=cloth.slug %}">
+                    <input type="submit" value="Usuń">
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+        <br>Ilość: {{ clothes|length }}
+    </div>
 </div>
 {% endblock %}

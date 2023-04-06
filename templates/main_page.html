@@ -1,22 +1,10 @@
 {% extends 'block.html' %}
-{% load static%}
+{% load static %}
 
 {% block title %} Strona główna {% endblock %}
 
 {% block page %}
-<div class="container">
-    <div class="navbar">
-        <img src="{% static 'images/logo.png' %}" class="logo">
-        <nav>
-            <ul>
-                <li><a href="{% url 'main_page' %}">STRONA GŁÓWNA</a></li>
-                <li><a href="{% url 'wardrobe' %}">SZAFA</a></li>
-                <li><a href="{% url 'add' %}">DODAJ</a></li>
-            </ul>
-        </nav>
-        <img src="{% static 'images/menu.png' %}" class="menu-icon">
-    </div>
-
+<div>
     <div class="row">
         <div class="col">
             <h1>Organizator</h1>

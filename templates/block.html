@@ -9,6 +9,20 @@
     <!-- NIE DZIAŁA LINK FONTU -->
 </head>
 <body>
-    {% block page %} {% endblock %}
+    <div class="container">
+        <div class="navbar">
+            <img src="{% static 'images/logo.png' %}" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'main_page' %}">STRONA GŁÓWNA</a></li>
+                    <li><a href="{% url 'wardrobe' %}">SZAFA</a></li>
+                    <li><a href="{% url 'add' %}">DODAJ</a></li>
+                </ul>
+            </nav>
+            <img src="{% static 'images/menu.png' %}" class="menu-icon">
+        </div>
+        {% block page %}
+        {% endblock %}
+    </div>
 </body>
 </html>

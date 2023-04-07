@@ -1,0 +1,16 @@
+.cloth-details{
+    color: #ffe28d;
+}
+.buttons{
+    margin-top: 10px;
+}
+.action-button-1{
+    float: left;
+    cursor: pointer;
+}
+.action-button-2{
+    float: left;
+}
+.action-button-3{
+    float: left;
+}

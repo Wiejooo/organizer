@@ -1,9 +1,30 @@
 {% extends 'block.html' %}
-{% block title %} Detal {% endblock %}
-{% block page %}
+{% load static %}
 
+{% block head %}
+<link rel="stylesheet" href="{% static 'detail.css' %}">
+{% endblock %}
+{% block title %} Detal {% endblock %}
+
+{% block page %}
 <h1>Detale:</h1>
 
-{{ cloth.name }}
-
+<div class="cloth-details">
+    {{ cloth.name }}<br>
+    Marka: {{ cloth.brand }}<br>
+    Rozmiar: {{ cloth.size }}<br>
+    Opis: {{ cloth.description }}<br>
+    Kiedy kupiony: {{ cloth.when_both }}<br>
+</div>
+<div class="buttons">
+    <form class="action-button-1" action="{% url 'edit' slug=cloth.slug %}">
+        <button type="submit">Edytuj</button>
+    </form>
+    <form class="action-button-2" action="{% url 'delete' slug=cloth.slug %}">
+        <button type="submit">Usuń</button>
+    </form>
+    <form class="action-button-3" action="{% url 'wardrobe' %}">
+        <button type="submit">Wróć</button>
+    </form>
+</div>
 {% endblock %}

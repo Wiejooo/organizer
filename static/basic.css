@@ -3,7 +3,7 @@ body{
 }
 .container{
     width: 100%;
-    height: 100vh;
+    height: 135vh;
     /* background-image: url("/static/images/start.jpg"); */
     background-color: #013508;
     background-position: center;
@@ -105,22 +105,3 @@ h5{
     text-shadow: 0 0 15px #000;
     font-size: 10px;
 }
-.cloth-bar{
-    position: relative;
-    width: 200px;
-    height: 230px;
-    display: inline-table;
-    background-color: #ffe28d;
-    margin-top: 10px;
-}
-.cloth-name{
-    font-size: 15px;
-    text-align: center;
-}
-#bottom{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: inline-table;
-}
-

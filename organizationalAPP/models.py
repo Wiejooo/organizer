@@ -16,7 +16,6 @@ class Clothes(models.Model):
     brand = models.CharField(max_length=64, blank=True)
     size = models.CharField(max_length=3, choices=what_size, null=True, blank=True)
     description = models.TextField(default="", blank=True)
-    when_both = models.DateField(blank=True, null=True)
     photo = models.ImageField(upload_to="photos", blank=True, null=True)
 
     def __str__(self):

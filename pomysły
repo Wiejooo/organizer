@@ -1,4 +1,5 @@
 Plan działania:
+
 - Podstawowa szata graficzna
 
 Pomysły:
@@ -8,6 +9,15 @@ Pomysły:
 - Dodawanie kategorii
 
 Problemy:
+
 - Nie aktualizuje się nazwa sluga
 
 - Nie można zapisać dwóch rzeczy o takiej samej nazwie
+
+- Usuwanie zdjęcia w momencie usunięcia przedmiotu
+
+Do poprawy:
+
+- Można się przenieść, klikajac gdziekolwiek na przedmiot
+
+- Szary pasek na ubraniu jest na pełnej długości

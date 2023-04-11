@@ -11,9 +11,10 @@
     <div class="cloth-wrapper">
         {% for cloth in clothes %}
         <div class="cloth-bar" style="background-image:url('/media/{{ cloth.photo }}')">
-            <h2 class="cloth-name">{{ cloth.name }}</h2>
-            <a href="{% url 'cloth-detail' slug=cloth.slug %}"></a>
-        </div>
+            <a href="{% url 'cloth-detail' slug=cloth.slug %}">
+                <h2 class="cloth-name">{{ cloth.name }}</h2>
+            </a>
+            </div>
         {% endfor %}
     </div>
 </div>

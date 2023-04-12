@@ -12,9 +12,11 @@ crossorigin="anonymous">
 
 <h1>Edycja ubrania</h1>
 
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Edit"> <a href="{% url 'wardrobe' %}">Cofnij</a>
-</form>
+<div class="mb-3">
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Edit"> <a href="{% url 'wardrobe' %}">Cofnij</a>
+    </form>
+</div>
 
 {% endblock %}

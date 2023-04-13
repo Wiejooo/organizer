@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import ListView, TemplateView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from organizationalAPP.forms import AddForm, AddTypeForm
@@ -19,6 +18,12 @@ class WardrobeView(ListView):
     template_name = "wardrobe.html"
     context_object_name = "clothes"
 
+    text = False
+
+    def get_context_data(self, **kwargs):
+            context = super(WardrobeView, self).get_context_data(**kwargs)
+            context.update({'tiles': self.text})
+            return context
 
 class ClothDetailView(DetailView):
     """Szczegóły ubrania"""
@@ -57,6 +62,9 @@ class ClothEditView(UpdateView):
     success_url = "/notebook/wardrobe"
 
 class ClothDeleteView(DeleteView):
+    """Usunięcie ubrania"""
+
     model = Clothes
     template_name = 'delete_cloth.html'
     success_url = '/notebook/wardrobe'
+

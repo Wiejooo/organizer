@@ -7,15 +7,22 @@
 {% block title %} Szafa {% endblock %}
 
 {% block page %}
-<div>
-    <div class="cloth-wrapper">
-        {% for cloth in clothes %}
-        <div class="cloth-bar" style="background-image:url('/media/{{ cloth.photo }}')">
-            <a href="{% url 'cloth-detail' slug=cloth.slug %}">
-                <h2 class="cloth-name">{{ cloth.name }}</h2>
-            </a>
-            </div>
-        {% endfor %}
+<a>Kafelki</a> <a>Tabela</a>
+
+
+{% if tiles == True %}
+<div class="cloth-wrapper">
+    {% for cloth in clothes %}
+    <div class="cloth-bar" style="background-image:url('/media/{{ cloth.photo }}')">
+        <a href="{% url 'cloth-detail' slug=cloth.slug %}">
+            <h2 class="cloth-name">{{ cloth.name }}</h2>
+        </a>
     </div>
+    {% endfor %}
 </div>
+{% endif %}
+{% if tiles == False %}
+COŚ
+{% endif %}
+{{ mytext }}
 {% endblock %}

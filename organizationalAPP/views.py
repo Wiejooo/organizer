@@ -18,11 +18,11 @@ class WardrobeView(ListView):
     template_name = "wardrobe.html"
     context_object_name = "clothes"
 
-    text = False
+    switch_view = True
 
     def get_context_data(self, **kwargs):
             context = super(WardrobeView, self).get_context_data(**kwargs)
-            context.update({'tiles': self.text})
+            context.update({'switch_view': self.switch_view})
             return context
 
 class ClothDetailView(DetailView):

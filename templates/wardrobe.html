@@ -7,10 +7,10 @@
 {% block title %} Szafa {% endblock %}
 
 {% block page %}
-<a>Kafelki</a> <a>Tabela</a>
+<a class="temporary">Kafelki</a> <a class="temporary">Tabela</a>
 
 
-{% if tiles == True %}
+{% if switch_view == True %}
 <div class="cloth-wrapper">
     {% for cloth in clothes %}
     <div class="cloth-bar" style="background-image:url('/media/{{ cloth.photo }}')">
@@ -21,8 +21,9 @@
     {% endfor %}
 </div>
 {% endif %}
-{% if tiles == False %}
+
+{% if switch_view == False %}
 COŚ
 {% endif %}
-{{ mytext }}
+
 {% endblock %}

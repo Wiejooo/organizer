@@ -1,5 +1,10 @@
+* {
+    font-family: "Quicksand";
+}
+
 body{
     background-color: #013508;
+    font-family: "Quicksand";
 }
 .container{
     width: 100%;

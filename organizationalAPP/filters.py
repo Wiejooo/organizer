@@ -1,18 +1,21 @@
 import django_filters
+from django import forms
 
-from organizationalAPP.models import Clothes
+from organizationalAPP.models import Clothes, ClothType
 
+x = ClothType.type
+
+
+FILTER_CHOICES = (
+    x
+)
 class ProductFilter(django_filters.FilterSet):
     """Filtrowanie obiektów"""
 
-    name = django_filters.CharFilter()
-    name__gt = django_filters.CharFilter(field_name='name', lookup_expr='gt')
-    name__lt = django_filters.CharFilter(field_name='name', lookup_expr='lt')
-
-    brand = django_filters.CharFilter()
-    brand__gt = django_filters.CharFilter(field_name='name', lookup_expr='gt')
-    brand__lt = django_filters.CharFilter(field_name='name', lookup_expr='lt')
-
+    cloth_type = django_filters.ChoiceFilter(choices=FILTER_CHOICES)
     class Meta:
         model = Clothes
-        fields = ['name', 'brand']
+        fields = {
+            'name': ['icontains'],
+            'brand': ['icontains'],
+        }

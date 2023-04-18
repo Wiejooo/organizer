@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from organizationalAPP.forms import AddForm, AddTypeForm
 from organizationalAPP.models import Clothes, ClothType
 from organizationalAPP.forms import ClothesForm
-
+from organizationalAPP.filters import ProductFilter
 
 class MainView(TemplateView):
     """Główna strona"""
@@ -17,6 +17,11 @@ class WardrobeView(ListView):
     model = Clothes
     template_name = "wardrobe.html"
     context_object_name = "clothes"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = ProductFilter(self.request.GET, queryset=self.get_queryset())
+        return context
 
 class WardrobeTableView(ListView):
     """Strona szafy tabela"""

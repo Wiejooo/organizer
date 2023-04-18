@@ -4,13 +4,13 @@
 {% block head %}
 <link rel="stylesheet" href="{% static 'wardrobe.css' %}">
 {% endblock %}
-{% block title %} Szafa {% endblock %}
+{% block title %} Wardrobe {% endblock %}
 
 {% block page %}
-<a href="{% url 'wardrobe' %}" class="temporary">Kafelki</a>
-<a href="{% url 'wardrobe_table' %}" class="temporary">Tabela</a>
+<a href="{% url 'wardrobe' %}" class="temporary">Tiles</a>
+<a href="{% url 'wardrobe_table' %}" class="temporary">Table</a>
 
-
+<br>Search:<input>
 <div class="cloth-wrapper">
     {% for cloth in clothes %}
     <div class="cloth-bar" style="background-image:url('/media/{{ cloth.photo }}')">

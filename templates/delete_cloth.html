@@ -1,12 +1,14 @@
 {% extends 'block.html' %}
-{% block title %} Strona główna {% endblock %}
+{% block title %} Delete {% endblock %}
 {% block page %}
 
-<h1>Usunięcie ubrania</h1>
+<h1>Delete product</h1>
 
 <form method="post">{% csrf_token %}
-    <h1>Chcesz usunąć {{ object.name }}</h1>
-    <input type="submit" value="Yes"> <a href="{% url 'wardrobe' %}">Nie</a>
+    <h1>Are you sure to remove {{ object.name }}?</h1>
+    <input type="submit" value="Yes">
+    <a href="{% url 'wardrobe' %}">Go back tiles</a>
+    <a href="{% url 'wardrobe_table' %}">Go back table</a>
 </form>
 
 {% endblock %}

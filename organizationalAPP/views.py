@@ -12,27 +12,21 @@ class MainView(TemplateView):
 
 
 class WardrobeView(ListView):
-    """Strona szafy"""
+    """Strona szafy kafelki"""
 
     model = Clothes
     template_name = "wardrobe.html"
     context_object_name = "clothes"
 
-    # Przekazywanie wartości do template (zostawiłem może na później)
-    # def get_context_data(self, **kwargs):
-    #         context = super(WardrobeView, self).get_context_data(**kwargs)
-    #         context.update({'switch_view': self.switch_view})
-    #         return context
-
 class WardrobeTableView(ListView):
-    """Strona szafy"""
+    """Strona szafy tabela"""
 
     model = Clothes
     template_name = "wardrobe_table.html"
     context_object_name = "clothes"
 
 class ClothDetailView(DetailView):
-    """Szczegóły ubrania"""
+    """Szczegóły ubrania kafelki"""
 
     model = Clothes
     template_name = "detail.html"
@@ -42,6 +36,15 @@ class ClothDetailView(DetailView):
         return super().get_context_data(**kwargs)
 
 
+class ClothDetailTableView(DetailView):
+    """Szczegóły ubrania tabela"""
+
+    model = Clothes
+    template_name = "detail-table.html"
+    context_object_name = "cloth"
+
+    def get_context_data(self, **kwargs):
+        return super().get_context_data(**kwargs)
 class AddClothView(CreateView):
     """Dodanie ubrania"""
 

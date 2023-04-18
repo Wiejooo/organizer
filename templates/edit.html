@@ -7,15 +7,17 @@ rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/S
 crossorigin="anonymous">
 {% endblock %}
 
-{% block title %} Edycja {% endblock %}
+{% block title %} Edit {% endblock %}
 {% block page %}
 
-<h1>Edycja ubrania</h1>
+<h1>Edit product</h1>
 
 <div class="mb-3">
     <form method="post">{% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Edit"> <a href="{% url 'wardrobe' %}">Cofnij</a>
+        <input type="submit" value="Edit">
+        <a href="{% url 'wardrobe' %}">Go back tiles</a>
+        <a href="{% url 'wardrobe_table' %}">Go back table</a>
     </form>
 </div>
 

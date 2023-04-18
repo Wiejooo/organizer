@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import ModelForm, SelectDateWidget
+from django.forms import ModelForm
 
 from organizationalAPP.models import Clothes, ClothType
 
@@ -27,11 +27,11 @@ class AddForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(AddForm, self).__init__(*args, **kwargs)
-        self.fields["name"].label = "Nazwa"
-        self.fields["brand"].label = "Marka"
-        self.fields["size"].label = "Rozmiar"
-        self.fields["description"].label = "Opis"
-        self.fields["photo"].label = "Zdjęcie"
+        self.fields["name"].label = "Name"
+        self.fields["brand"].label = "Brand"
+        self.fields["size"].label = "Size"
+        self.fields["description"].label = "Description"
+        self.fields["photo"].label = "Photo"
 
 
 class AddTypeForm(forms.ModelForm):
@@ -45,4 +45,4 @@ class AddTypeForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(AddTypeForm, self).__init__(*args, **kwargs)
-        self.fields["type"].label = "Nowy typ ubrania"
+        self.fields["type"].label = "New type"

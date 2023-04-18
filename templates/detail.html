@@ -4,27 +4,27 @@
 {% block head %}
 <link rel="stylesheet" href="{% static 'detail.css' %}">
 {% endblock %}
-{% block title %} Detal {% endblock %}
+{% block title %} Detail {% endblock %}
 
 {% block page %}
-<h1>Detale:</h1>
+<h1>Detail:</h1>
 
 <div class="cloth-details">
     {{ cloth.name }}<br>
-    Marka: {{ cloth.brand }}<br>
-    Rozmiar: {{ cloth.size }}<br>
-    Opis: {{ cloth.description }}<br>
-    Typ: {{ cloth.cloth_type }}<br>
+    Brand: {{ cloth.brand }}<br>
+    Size: {{ cloth.size }}<br>
+    Description: {{ cloth.description }}<br>
+    Type: {{ cloth.cloth_type }}<br>
 </div>
 <div class="buttons">
     <form class="action-button-1" action="{% url 'edit' slug=cloth.slug %}">
-        <button type="submit">Edytuj</button>
+        <button type="submit">Edit</button>
     </form>
     <form class="action-button-2" action="{% url 'delete' slug=cloth.slug %}">
-        <button type="submit">Usuń</button>
+        <button type="submit">Delete</button>
     </form>
     <form class="action-button-3" action="{% url 'wardrobe' %}">
-        <button type="submit">Wróć</button>
+        <button type="submit">Go back</button>
     </form>
 </div>
 {% endblock %}

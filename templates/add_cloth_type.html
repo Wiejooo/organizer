@@ -8,16 +8,16 @@ crossorigin="anonymous">
 <link rel="stylesheet" href="{% static 'add.css' %}">
 {% endblock %}
 
-{% block title %} Dodaj typ {% endblock %}
+{% block title %} Add type {% endblock %}
 
 {% block page %}
 
-<h1>Dodaj typ:</h1>
+<h1>Add type:</h1>
 <div class="mb-3">
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit">
+        <input type="submit" value="Send">
     </form>
 </div>
 

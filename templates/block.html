@@ -14,13 +14,12 @@
             <img src="{% static 'images/logo.png' %}" class="logo">
             <nav>
                 <ul>
-                    <li><a href="{% url 'main_page' %}">STRONA GŁÓWNA</a></li>
-                    <li><a href="{% url 'wardrobe' %}">SZAFA</a></li>
-                    <li><a href="{% url 'add_cloth' %}">DODAJ CIUCH</a></li>
-                    <li><a href="{% url 'add_type' %}">DODAJ TYP</a></li>
+                    <li><a href="{% url 'main_page' %}">MAIN PAGE</a></li>
+                    <li><a href="{% url 'wardrobe' %}">WARDROBE</a></li>
+                    <li><a href="{% url 'add_cloth' %}">ADD CLOTHING</a></li>
+                    <li><a href="{% url 'add_type' %}">ADD TYPE</a></li>
                 </ul>
             </nav>
-            <img src="{% static 'images/menu.png' %}" class="menu-icon">
         </div>
         {% block page %}
         {% endblock %}

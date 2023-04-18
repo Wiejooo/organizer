@@ -18,12 +18,18 @@ class WardrobeView(ListView):
     template_name = "wardrobe.html"
     context_object_name = "clothes"
 
-    switch_view = True
+    # Przekazywanie wartości do template (zostawiłem może na później)
+    # def get_context_data(self, **kwargs):
+    #         context = super(WardrobeView, self).get_context_data(**kwargs)
+    #         context.update({'switch_view': self.switch_view})
+    #         return context
 
-    def get_context_data(self, **kwargs):
-            context = super(WardrobeView, self).get_context_data(**kwargs)
-            context.update({'switch_view': self.switch_view})
-            return context
+class WardrobeTableView(ListView):
+    """Strona szafy"""
+
+    model = Clothes
+    template_name = "wardrobe_table.html"
+    context_object_name = "clothes"
 
 class ClothDetailView(DetailView):
     """Szczegóły ubrania"""

@@ -6,7 +6,7 @@ body{
     background-color: #013508;
     font-family: "Quicksand";
 }
-.container{
+.page-container{
     width: 100%;
     height: 135vh;
     /* background-image: url("/static/images/start.jpg"); */

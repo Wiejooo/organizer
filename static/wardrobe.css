@@ -52,12 +52,9 @@ h2, a {
 .action-button-2{
     float: left;
 }
-.temporary {
+.switch-button {
     color: #ffe28d;
 }
-.cloth-table{
-    background-color: aliceblue;
-}
 .filter_form{
-    background-color: grey;
+    color: white;
 }

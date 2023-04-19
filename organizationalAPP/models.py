@@ -1,8 +1,8 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 
-class ClothType(models.Model):
 
+class ClothType(models.Model):
     type = models.CharField(max_length=64, blank=False)
 
     def __str__(self):

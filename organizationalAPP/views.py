@@ -5,6 +5,7 @@ from organizationalAPP.models import Clothes, ClothType
 from organizationalAPP.forms import ClothesForm
 from organizationalAPP.filters import ProductFilter
 
+
 class MainView(TemplateView):
     """Główna strona"""
 
@@ -23,12 +24,14 @@ class WardrobeView(ListView):
         context['filter'] = ProductFilter(self.request.GET, queryset=self.get_queryset())
         return context
 
+
 class WardrobeTableView(ListView):
     """Strona szafy tabela"""
 
     model = Clothes
     template_name = "wardrobe_table.html"
     context_object_name = "clothes"
+
 
 class ClothDetailView(DetailView):
     """Szczegóły ubrania kafelki"""
@@ -50,6 +53,8 @@ class ClothDetailTableView(DetailView):
 
     def get_context_data(self, **kwargs):
         return super().get_context_data(**kwargs)
+
+
 class AddClothView(CreateView):
     """Dodanie ubrania"""
 
@@ -67,6 +72,7 @@ class AddTypeView(CreateView):
     form_class = AddTypeForm
     success_url = "/notebook/wardrobe"
 
+
 class ClothEditView(UpdateView):
     """Edycja ubrania"""
 
@@ -75,10 +81,10 @@ class ClothEditView(UpdateView):
     form_class = ClothesForm
     success_url = "/notebook/wardrobe"
 
+
 class ClothDeleteView(DeleteView):
     """Usunięcie ubrania"""
 
     model = Clothes
     template_name = 'delete_cloth.html'
     success_url = '/notebook/wardrobe'
-

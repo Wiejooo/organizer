@@ -15,6 +15,18 @@
     Size: {{ cloth.size }}<br>
     Description: {{ cloth.description }}<br>
     Type: {{ cloth.cloth_type }}<br>
+    Purchase price: {{ cloth.purchase_price }}<br>
+    Predicted sale price: {{ cloth.predicted_sale_price }}<br>
+    Sold price: {{ cloth.sold_price }}<br>
+    Marketplaces:<br>
+
+    {% for market in cloth.marketplaces.all %}
+        {{ market }}<br>
+    {% endfor %}
+
+    {% with cloth.id|stringformat:"s" as cloth_id %}
+    Item ID: {{ cloth_id }}
+    {% endwith %}
 </div>
 <div class="buttons">
     <form class="action-button-1" action="{% url 'edit' slug=cloth.slug %}">

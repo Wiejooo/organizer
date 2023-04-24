@@ -5,9 +5,14 @@ from organizationalAPP.models import Clothes, ClothType
 
 
 class ClothesForm(ModelForm):
+    """Form do edycji ubrania"""
     class Meta:
         model = Clothes
-        fields = ["name", "brand", "size", "cloth_type", "description", "photo"]
+        fields = (
+            "name", "brand", "size", "purchase_price",
+            "predicted_sale_price", "sold_price", "cloth_type",
+            "description", "marketplaces", "photo"
+            )
 
 
 class AddForm(forms.ModelForm):
@@ -15,7 +20,11 @@ class AddForm(forms.ModelForm):
 
     class Meta:
         model = Clothes
-        fields = ("name", "brand", "size", "cloth_type", "description", "photo")
+        fields = (
+            "name", "brand", "size", "purchase_price",
+            "predicted_sale_price", "sold_price", "cloth_type",
+            "description", "marketplaces", "photo"
+            )
 
         widgets = {
             "name": forms.TextInput(attrs={"class": "form-control"}),

@@ -10,3 +10,15 @@ h1{
 p{
     color: #ffe28d;
 }
+input{
+    width: 100%;
+    background-color: rgb(170, 169, 169);
+}
+textarea{
+    width: 100%;
+    background-color: rgb(170, 169, 169);
+}
+select{
+    width: 100%;
+    background-color: rgb(170, 169, 169);
+}

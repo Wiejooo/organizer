@@ -24,7 +24,6 @@ body{
 }
 .logo{
     width: 150px;
-    cursor: pointer;
 }
 .menu-icon{
     width: 30px;
@@ -43,7 +42,7 @@ nav ul li{
 .menu-button{
     text-decoration: none;
     color: #ffe28d;
-    font-size: 18px;
+    font-size: 16px;
     padding: 5px;
 }
 .menu-button:hover{

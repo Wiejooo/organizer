@@ -1,7 +1,12 @@
 label{
     font-size: 25px;
     margin-bottom: 13px;
+    color: #ffe28d;
 }
 h1{
     margin-bottom: 30px;
+    color: #ffe28d;
+}
+p{
+    color: #ffe28d;
 }

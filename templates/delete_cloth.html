@@ -1,14 +1,22 @@
 {% extends 'block.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'delete.css' %}">
+{% endblock %}
+
 {% block title %} Delete {% endblock %}
 {% block page %}
 
 <h1>Delete product</h1>
 
 <form method="post">{% csrf_token %}
-    <h1>Are you sure to remove {{ object.name }}?</h1>
-    <input type="submit" value="Yes">
-    <a href="{% url 'wardrobe' %}">Go back tiles</a>
-    <a href="{% url 'wardrobe_table' %}">Go back table</a>
+    <h2>Are you sure to remove {{ object.name }}?</h2>
+    <div class= "direction-button-area">
+        <input type="submit" value="Yes">
+        <a class="direction-button" href="{% url 'wardrobe' %}">Go back tiles</a>
+        <a class="direction-button" href="{% url 'wardrobe_table' %}">Go back table</a>
+    </div>
 </form>
 
 {% endblock %}

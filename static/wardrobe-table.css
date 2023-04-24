@@ -6,4 +6,8 @@
 }
 .switch-button {
     color: #ffe28d;
+    margin-right: 30px;
+}
+.switch-button:hover{
+    background-color: black;
 }

@@ -1,0 +1,34 @@
+h1{
+   color:#ffe28d
+}
+label{
+    color: #ffe28d;
+}
+input{
+    width: 100%;
+    background-color: rgb(170, 169, 169);
+}
+select{
+    width: 100%;
+    background-color: rgb(170, 169, 169);
+}
+textarea{
+    width: 100%;
+    background-color: rgb(170, 169, 169);
+}
+.direction-button{
+    color: #ffe28d;
+    text-decoration: none;
+    margin-right: 15px;
+    border: 2px solid #ffe28d;
+    padding: 3px;
+}
+.direction-button:hover{
+    background-color: black;
+}
+.direction-button-area{
+    margin-top: 50px;
+}
+.direction-button-area input{
+    width: 50px;
+}

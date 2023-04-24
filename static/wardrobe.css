@@ -54,6 +54,11 @@ h2, a {
 }
 .switch-button {
     color: #ffe28d;
+    margin-right: 30px;
+    text-decoration: none;
+}
+.switch-button:hover{
+    background-color: black;
 }
 .filter_form{
     color: white;

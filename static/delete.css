@@ -1,0 +1,19 @@
+h1{
+    color: #ffe28d;
+}
+h2{
+    color: #ffe28d;
+}
+.direction-button{
+    color: #ffe28d;
+    text-decoration: none;
+    margin-right: 15px;
+    border: 2px solid #ffe28d;
+    padding: 3px;
+}
+.direction-button:hover{
+    background-color: black;
+}
+.direction-button-area{
+    margin-top: 10px;
+}

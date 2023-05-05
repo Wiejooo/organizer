@@ -1,3 +1,6 @@
+* {
+    font-family: "Quicksand";
+}
 body{
     background-color: #013508;
     margin: 0 !important;
@@ -12,7 +15,7 @@ body{
 }
 .logo{
     width: 500px;
-    font-size: 45px;
+    font-size: 40px;
     margin-left: auto;
     margin-right: auto;
 }

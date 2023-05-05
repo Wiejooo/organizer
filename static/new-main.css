@@ -22,17 +22,19 @@ body{
     margin-right: 30px;
 }
 .text-logo{
+    color: #ffe28d;
 }
 .nav{
-    width: 100%;
+    width: 70%;
+    height: 35px;
+    margin: 0 auto;
     padding: 3px 0;
     background-color: #ffe28d;
     text-align: center;
-    border-top: 1px solid #f8c21f;
-    border-bottom: 1px solid #f8c21f;
+    border: 2px solid #f8c21f;
     position:sticky;
     top:0rem;
-
+    border-radius: 30px;
 }
 .content{
     width: 1000px;
@@ -55,24 +57,15 @@ ol a{
     color: black;
     text-decoration: none;
     display: block;
-    border-right: 1px dashed black;
 }
-
 ol > li{
     float: left;
     width: 150px;
     height: 40px;
 }
-
-ol > li:first-child{
-    border-left: 1px dashed black;
-}
 ol > li:hover{
-    background-color: #d1a623;
-}
-
-ol > li:hover > a{
-    color: #f87001;
+    background-color: #FFE9AA;
+    border-radius: 30px;
 }
 ol > li > ul{
     list-style-type: none;
@@ -85,10 +78,14 @@ ol > li > ul > li{
     background-color: #ffe28d;
     position: relative;
     z-index: 100;
-    border-top: 1px dashed black;
+    border-bottom: 1px solid black;
+    border-radius: 30px;
+}
+ol > li > ul > li:first-child{
+    border-top: 1px solid black;
 }
 ol li ul li:hover{
-    background-color: #ffffff;
+    background-color: #FFE9AA;
 
 }
 

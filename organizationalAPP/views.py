@@ -6,11 +6,11 @@ from organizationalAPP.forms import ClothesForm
 from organizationalAPP.filters import ProductFilter
 
 
-class MainView(TemplateView):
+class MainView(ListView):
     """Główna strona"""
-
+    model = Clothes
     template_name = "main_page.html"
-
+    context_object_name = "clothes"
 
 class WardrobeView(ListView):
     """Strona szafy kafelki"""

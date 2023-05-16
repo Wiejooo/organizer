@@ -1,3 +1,6 @@
+*{
+    box-sizing: revert;
+}
 .cloth-table{
     background-color: aliceblue;
 }
@@ -11,3 +14,4 @@
 .switch-button:hover{
     background-color: black;
 }
+

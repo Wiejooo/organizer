@@ -9,7 +9,7 @@ from organizationalAPP.filters import ProductFilter
 class MainView(TemplateView):
     """Główna strona"""
 
-    template_name = "new_main.html"
+    template_name = "main_page.html"
 
 
 class WardrobeView(ListView):

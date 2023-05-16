@@ -15,31 +15,32 @@ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLP
 {% block title %} Wardrobe {% endblock %}
 
 {% block page %}
+<div class="content">
+    <a href="{% url 'wardrobe' %}" class="switch-button">Tiles</a>
+    <a href="{% url 'wardrobe_table' %}" class="switch-button">Table</a>
 
-<a href="{% url 'wardrobe' %}" class="switch-button">Tiles</a>
-<a href="{% url 'wardrobe_table' %}" class="switch-button">Table</a>
-
-<div class="cloth-table">
-    <table id="cloth-table" class="display">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Brand</th>
-                <th>Size</th>
-                <th>Type</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for cloth in clothes %}
-            <tr>
-                <td><a href="{% url 'cloth-detail-table' slug=cloth.slug %}">{{ cloth.name }}</a></td>
-                <td>{{ cloth.brand }}</td>
-                <td>{{ cloth.size }}</td>
-                <td>{{ cloth.cloth_type }}</td>
-                {% endfor %}
-            </tr>
-        </tbody>
-    </table>
+    <div class="cloth-table">
+        <table id="cloth-table" class="display">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Size</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cloth in clothes %}
+                <tr>
+                    <td><a href="{% url 'cloth-detail-table' slug=cloth.slug %}">{{ cloth.name }}</a></td>
+                    <td>{{ cloth.brand }}</td>
+                    <td>{{ cloth.size }}</td>
+                    <td>{{ cloth.cloth_type }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+</div>
 </div>
 <script>
     $(document).ready(function() {

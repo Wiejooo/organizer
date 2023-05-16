@@ -5,21 +5,33 @@
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %}</title>
     {% block head %}{% endblock %}
-    <link rel="stylesheet" href="{% static 'basic.css' %}">
+    <link rel="stylesheet" href="{% static 'new-main.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="page-container">
-        <div class="navbar">
-            <img src="{% static 'images/logo.png' %}" class="logo">
-            <nav>
-                <ul>
+        <div class="wrapper">
+            <div class="header">
+                <div class="logo">
+                    <img src="{% static 'images/logo.png' %}" class="pic-logo" style="float:left;">
+                    <div class="text-logo">Organizator ciuchów</div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+            <div class="nav-global">
+                <ol>
                     <li><a class="menu-button" href="{% url 'main_page' %}">MAIN PAGE</a></li>
                     <li><a class="menu-button" href="{% url 'wardrobe' %}">WARDROBE</a></li>
-                    <li><a class="menu-button" href="{% url 'add_cloth' %}">ADD CLOTHING</a></li>
-                    <li><a class="menu-button" href="{% url 'add_type' %}">ADD TYPE</a></li>
-                </ul>
-            </nav>
+                    <li><a class="menu-button" href="#">ADD</a>
+                        <ul>
+                            <li><a href="{% url 'add_cloth' %}">CLOTHING</a></li>
+                            <li><a href="{% url 'add_type' %}">TYPE</a></li>
+                            <li><a href="#">SUB-TYPE</a></li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="content">
         </div>
         {% block page %}
         {% endblock %}

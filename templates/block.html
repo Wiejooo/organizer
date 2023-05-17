@@ -20,7 +20,12 @@
             <div class="nav-global">
                 <ol>
                     <li><a class="menu-button" href="{% url 'main_page' %}">MAIN PAGE</a></li>
-                    <li><a class="menu-button" href="{% url 'wardrobe' %}">WARDROBE</a></li>
+                    <li><a class="menu-button" href="{% url 'wardrobe' %}">WARDROBE</a>
+                        <ul>
+                            <li><a href="{% url 'wardrobe' %}">TILES</a></li>
+                            <li><a href="{% url 'wardrobe_table' %}">TABLE</a></li>
+                        </ul>
+                    </li>
                     <li><a class="menu-button" href="#">ADD</a>
                         <ul>
                             <li><a href="{% url 'add_cloth' %}">CLOTHING</a></li>

@@ -10,6 +10,5 @@ urlpatterns = [
     path("add_type/", views.AddTypeView.as_view(), name="add_type"),
     path("<slug:slug>/edit", views.ClothEditView.as_view(), name="edit"),
     path("<slug:slug>/delete", views.ClothDeleteView.as_view(), name="delete"),
-    path("<slug:slug>/table", views.ClothDetailTableView.as_view(), name="cloth-detail-table"),
     path("<slug:slug>/", views.ClothDetailView.as_view(), name="cloth-detail"),
 ]

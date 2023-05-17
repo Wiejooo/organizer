@@ -15,8 +15,11 @@
     <div class="raw-statistick">
         Statistics
         <p>Number of object: {{ clothes.count }}</p>
-        <p>Spent money: {{ clothes.purchase_price }}</p>
-        test
+        <p>Spent money: {{ price }}</p>
+        {% for cloth in clothes %}
+            {{ cloth.purchase_price }}
+        {% endfor %}
+        
     </div>
 </div>
 

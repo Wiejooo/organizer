@@ -1,16 +1,27 @@
+from typing import Any, Dict
 from django.views.generic import ListView, TemplateView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from organizationalAPP.forms import AddForm, AddTypeForm
 from organizationalAPP.models import Clothes, ClothType
 from organizationalAPP.forms import ClothesForm
 from organizationalAPP.filters import ProductFilter
+from django.db.models import Sum
 
 
 class MainView(ListView):
     """Główna strona"""
+
     model = Clothes
     template_name = "main_page.html"
     context_object_name = "clothes"
+
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context["price"] = Clothes.objects.aggregate(Sum("purchase_price")).get(
+            "purchase_price__sum"
+        )
+        return context
+
 
 class WardrobeView(ListView):
     """Strona szafy kafelki"""
@@ -21,7 +32,9 @@ class WardrobeView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['filter'] = ProductFilter(self.request.GET, queryset=self.get_queryset())
+        context["filter"] = ProductFilter(
+            self.request.GET, queryset=self.get_queryset()
+        )
         return context
 
 
@@ -68,7 +81,7 @@ class AddTypeView(CreateView):
     """Dodanie typu ubrań"""
 
     model = ClothType
-    template_name = 'add_cloth_type.html'
+    template_name = "add_cloth_type.html"
     form_class = AddTypeForm
     success_url = "/notebook/wardrobe"
 
@@ -86,5 +99,5 @@ class ClothDeleteView(DeleteView):
     """Usunięcie ubrania"""
 
     model = Clothes
-    template_name = 'delete_cloth.html'
-    success_url = '/notebook/wardrobe'
+    template_name = "delete_cloth.html"
+    success_url = "/notebook/wardrobe"

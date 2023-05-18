@@ -5,7 +5,7 @@ from organizationalAPP import models
 
 @admin.register(models.Clothes)
 class ClothesAdmin(admin.ModelAdmin):
-    fields = ['name', 'slug', 'brand', 'size', 'description', 'photo', 'cloth_type', 'sell_statute']
+    fields = ['name', 'slug', 'brand', 'size', 'description', 'photo', 'cloth_type', 'cloth_sub_type' ,'sell_statute']
     list_display = ['name', 'brand', 'size']
     list_filter = ['brand']
     search_fields = ['name', 'description']

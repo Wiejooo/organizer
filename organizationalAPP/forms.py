@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 
-from organizationalAPP.models import Clothes, ClothType
+from organizationalAPP.models import Clothes, ClothType, ClothSubType
 
 
 class ClothesForm(ModelForm):
@@ -11,7 +11,8 @@ class ClothesForm(ModelForm):
         fields = (
             "name", "brand", "size", "purchase_price",
             "predicted_sale_price", "sold_price", "cloth_type",
-            "description", "marketplaces", "photo", 'sell_statute'
+            "cloth_sub_type", "description", "marketplaces", "photo",
+            'sell_statute',
             )
 
 
@@ -55,3 +56,17 @@ class AddTypeForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AddTypeForm, self).__init__(*args, **kwargs)
         self.fields["type"].label = "New type"
+
+
+class AddSubTypeForm(forms.ModelForm):
+    """Form dodania nowego sub-typu ubrania"""
+
+    class Meta:
+        model = ClothSubType
+        fields = ("type",)
+
+        widgets = {"type": forms.TextInput(attrs={"class": "form-control"})}
+
+    def __init__(self, *args, **kwargs):
+        super(AddSubTypeForm, self).__init__(*args, **kwargs)
+        self.fields["type"].label = "New sub-type"

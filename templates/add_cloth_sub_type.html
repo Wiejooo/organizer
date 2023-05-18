@@ -1,0 +1,24 @@
+{% extends 'block.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'add.css' %}">
+{% endblock %}
+
+{% block title %} Add sub-type {% endblock %}
+
+{% block page %}
+
+<div class="content">
+    <h1>Add sub-type:</h1>
+    <div class="add-cloth-container">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Send">
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

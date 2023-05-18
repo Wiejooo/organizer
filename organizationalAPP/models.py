@@ -8,6 +8,13 @@ class ClothType(models.Model):
     def __str__(self):
         return self.type
 
+
+class ClothSubType(models.Model):
+    type = models.CharField(max_length=64, blank=False)
+
+    def __str__(self):
+        return self.type
+
 class Marketplaces(models.Model):
     name = models.CharField(max_length=64, blank=False)
 
@@ -35,6 +42,7 @@ class Clothes(models.Model):
     photo = models.ImageField(upload_to="photos", blank=True, null=True)
     marketplaces = models.ManyToManyField(Marketplaces, null=True, blank=True)
     cloth_type = models.ForeignKey(ClothType, null=True, on_delete=models.SET_NULL)
+    cloth_sub_type = models.ForeignKey(ClothSubType, null=True, on_delete=models.SET_NULL)
     sell_statute = models.BooleanField("Sold", default=False)
 
     def __str__(self):

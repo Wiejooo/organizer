@@ -19,14 +19,14 @@
         Purchase price: {{ cloth.purchase_price }}<br>
         Predicted sale price: {{ cloth.predicted_sale_price }}<br>
         Sold price: {{ cloth.sold_price }}<br>
+        Sold: {{ cloth.sell_statute }}<br>
         Marketplaces:<br>
-
         {% for market in cloth.marketplaces.all %}
-            {{ market }}<br>
+            {{ market }},
         {% endfor %}
 
         {% with cloth.id|stringformat:"s" as cloth_id %}
-        Item ID: {{ cloth_id }}
+        <p>Item ID: {{ cloth_id }}</p>
         {% endwith %}
     </div>
     <div class="buttons">

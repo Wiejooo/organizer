@@ -17,9 +17,18 @@ class MainView(ListView):
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context["price"] = Clothes.objects.aggregate(Sum("purchase_price")).get(
-            "purchase_price__sum"
-        )
+        price = Clothes.objects.aggregate(Sum("purchase_price")).get("purchase_price__sum")
+        clothes = Clothes.objects.all()
+        money_earned = Clothes.objects.aggregate(Sum('sold_price')).get('sold_price__sum')
+        income = money_earned - price
+        predicting_earnings = Clothes.objects.aggregate(Sum('predicted_sale_price')).get('predicted_sale_price__sum')
+        context = {
+            'price': price,
+             'clothes': clothes,
+             'money_earned': money_earned,
+             'income': income,
+             'predicting_earnings': predicting_earnings
+             }
         return context
 
 

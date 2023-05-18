@@ -11,7 +11,7 @@ class ClothesForm(ModelForm):
         fields = (
             "name", "brand", "size", "purchase_price",
             "predicted_sale_price", "sold_price", "cloth_type",
-            "description", "marketplaces", "photo"
+            "description", "marketplaces", "photo", 'sell_statute'
             )
 
 

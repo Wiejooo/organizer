@@ -35,6 +35,7 @@ class Clothes(models.Model):
     photo = models.ImageField(upload_to="photos", blank=True, null=True)
     marketplaces = models.ManyToManyField(Marketplaces, null=True, blank=True)
     cloth_type = models.ForeignKey(ClothType, null=True, on_delete=models.SET_NULL)
+    sell_statute = models.BooleanField("Sold", default=False)
 
     def __str__(self):
         return self.name

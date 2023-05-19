@@ -1,6 +1,8 @@
 .cloth-details{
+    width: 50%;
     color: #ffe28d;
     font-size: 20px;
+    float: left;
 }
 .buttons{
     margin-top: 10px;
@@ -16,4 +18,13 @@
 }
 h1{
     color: #ffe28d;
+}
+.desc-to-page{
+    width: 50%;
+    font-size: 20px;
+    float: right;
+}
+.description-field{
+    border: 1px solid #ffe28d;
+    padding: 13px;
 }

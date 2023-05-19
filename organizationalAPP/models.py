@@ -52,3 +52,11 @@ class Clothes(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         return super().save(*args, **kwargs)
+
+    @property
+    def description_generator(self):
+        """Funkcja do generowania opisów"""
+
+        return f"""
+        To jest {self.name}, kosztuje {self.sold_price} PLN.
+        """

@@ -11,25 +11,33 @@
     <h1>Detail:</h1>
 
     <div class="cloth-details">
-        {{ cloth.name }}<br>
-        Brand: {{ cloth.brand }}<br>
-        Size: {{ cloth.size }}<br>
-        Description: {{ cloth.description }}<br>
-        Type: {{ cloth.cloth_type }}<br>
-        Sub-type: {{ cloth.cloth_sub_type }}<br>
-        Purchase price: {{ cloth.purchase_price }}<br>
-        Predicted sale price: {{ cloth.predicted_sale_price }}<br>
-        Sold price: {{ cloth.sold_price }}<br>
-        Sold: {{ cloth.sell_statute }}<br>
-        Marketplaces:<br>
+        <p><b>Nazwa:</b> {{ cloth.name }}</p>
+        <p><b>Brand:</b> {{ cloth.brand }}</p>
+        <p><b>Size:</b> {{ cloth.size }}</p>
+        <p><b>Description:</b> {{ cloth.description }}</p>
+        <p><b>Type:</b> {{ cloth.cloth_type }}</p>
+        <p><b>Sub-type:</b> {{ cloth.cloth_sub_type }}</p>
+        <p><b>Purchase price:</b> {{ cloth.purchase_price }}</p>
+        <p><b>Predicted sale price:</b> {{ cloth.predicted_sale_price }}</p>
+        <p><b>Sold price:</b> {{ cloth.sold_price }}</p>
+       <p><b>Sold:</b> {{ cloth.sell_statute }}</p>
+        <p><b>Marketplaces:</b>
         {% for market in cloth.marketplaces.all %}
             {{ market }},
-        {% endfor %}
+        {% endfor %}</p>
 
         {% with cloth.id|stringformat:"s" as cloth_id %}
-        <p>Item ID: {{ cloth_id }}</p>
+        <p><b>Item ID:</b> {{ cloth_id }}</p>
         {% endwith %}
     </div>
+    <div class="desc-to-page">
+        <br>Description for sell: <br>
+        <div class="description-field" id="sample">
+            {{ cloth.description_generator }}
+        </div>
+        <button onclick="copyText()">Copy</button>
+    </div>
+    <div style="clear:both"></div>
     <div class="buttons">
         <form class="action-button-1" action="{% url 'edit' slug=cloth.slug %}">
             <button type="submit">Edit</button>
@@ -45,4 +53,13 @@
         </form>
     </div>
 </div>
+
+<script>
+function copyText() {
+
+      /* Copy text into clipboard */
+      navigator.clipboard.writeText
+          ("Geeksforgeeks is best learning platform.");
+  }
+</script>
 {% endblock %}

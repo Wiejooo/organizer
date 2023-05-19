@@ -31,7 +31,6 @@ class MainView(ListView):
              }
         return context
 
-
 class WardrobeView(ListView):
     """Strona szafy kafelki"""
 

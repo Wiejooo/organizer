@@ -58,5 +58,21 @@ class Clothes(models.Model):
         """Funkcja do generowania opisów"""
 
         return f"""
-        To jest {self.name}, kosztuje {self.sold_price} PLN.
+FOLLOW MY SHOP AND FEEL FREE TO FAVORITE LISTINGS IF YOU LIKE REGULAR ITEM UPDATES AND PRICE DROPPERS \t
+
+Size {self.size}
+Recommend checking the measurements as sizes might occasionally vary
+
+Condition used, overall condition 810, wear is evident. Please look over all of the pictures.
+
+See also SIZE Measurements
+15 (39 cm) Chest
+44 (112 cm) Length
+12 (31 cm) Sleeve Length
+
+___________________________________
+Accepting bids. updates to the goods every day.
+Tracked shipment from Poland to all countries.
+Always sending 48 hours after payment.
+Typically shipping takes 9 - 16 business days to arrive.
         """

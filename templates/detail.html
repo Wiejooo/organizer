@@ -32,10 +32,10 @@
     </div>
     <div class="desc-to-page">
         <br>Description for sell: <br>
-        <div class="description-field" id="sample">
+        <div class="description-field" id="desc-block">
             {{ cloth.description_generator }}
         </div>
-        <button onclick="copyText()">Copy</button>
+        <button id="copy-button">Copy</button>
     </div>
     <div style="clear:both"></div>
     <div class="buttons">
@@ -55,11 +55,16 @@
 </div>
 
 <script>
-function copyText() {
-
-      /* Copy text into clipboard */
-      navigator.clipboard.writeText
-          ("Geeksforgeeks is best learning platform.");
-  }
+    function copyFunction() {
+    const copyText = document.getElementById('desc-block').textContent;
+    const textArea = document.createElement('textarea');
+    textArea.textContent = copyText;
+    document.body.append(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    k2button.innerText = 'Text copied';
+        textArea.remove();
+    }
+document.getElementById('copy-button').addEventListener('click', copyFunction);
 </script>
 {% endblock %}

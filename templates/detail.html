@@ -8,32 +8,42 @@
 
 {% block page %}
 <div class="content">
-    <h1>Detail:</h1>
-
     <div class="cloth-details">
+        <h1>Main detail:</h1>
         <p><b>Nazwa:</b> {{ cloth.name }}</p>
         <p><b>Brand:</b> {{ cloth.brand }}</p>
-        <p><b>Size:</b> {{ cloth.size }}</p>
         <p><b>Description:</b> {{ cloth.description }}</p>
         <p><b>Type:</b> {{ cloth.cloth_type }}</p>
         <p><b>Sub-type:</b> {{ cloth.cloth_sub_type }}</p>
-        <p><b>Purchase price:</b> {{ cloth.purchase_price }}</p>
-        <p><b>Predicted sale price:</b> {{ cloth.predicted_sale_price }}</p>
-        <p><b>Sold price:</b> {{ cloth.sold_price }}</p>
-       <p><b>Sold:</b> {{ cloth.sell_statute }}</p>
-        <p><b>Marketplaces:</b>
+        <p><b>Condition:</b> {{ cloth.condition }}/10</p>
+                <p><b>Marketplaces:</b>
         {% for market in cloth.marketplaces.all %}
             {{ market }},
         {% endfor %}</p>
-
         {% with cloth.id|stringformat:"s" as cloth_id %}
         <p><b>Item ID:</b> {{ cloth_id }}</p>
         {% endwith %}
     </div>
+
+    <div class="cloth-details">
+        <h1>Cash detail:</h1>
+        <p><b>Purchase price:</b> {{ cloth.purchase_price }}</p>
+        <p><b>Predicted sale price:</b> {{ cloth.predicted_sale_price }}<p>
+        <p><b>Sold price:</b> {{ cloth.sold_price }}</p>
+        <p><b>Sold:</b> {{ cloth.sell_statute }}</p>
+    </div>
+
+    <div class="cloth-details">
+        <h1>Measurements:</h1>
+        <p><b>Size:</b> {{ cloth.size }}</p>
+    </div>
+
     <div class="desc-to-page">
         <br>Description for sell: <br>
         <div class="description-field" id="desc-block">
-            {{ cloth.description_generator }}
+            {{ cloth.description_generator }}<br><br>
+            {{ cloth.description_generator_2 }}<br>
+            {{ cloth.description_generator_3 }}
         </div>
         <button id="copy-button">Copy</button>
     </div>

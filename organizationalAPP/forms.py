@@ -10,7 +10,7 @@ class ClothesForm(ModelForm):
         model = Clothes
         fields = (
             "name", "brand", "size", "purchase_price",
-            "predicted_sale_price", "sold_price", "cloth_type",
+            "predicted_sale_price", "sold_price", "condition", "cloth_type",
             "cloth_sub_type", "description", "marketplaces", "photo",
             'sell_statute',
             )
@@ -23,7 +23,7 @@ class AddForm(forms.ModelForm):
         model = Clothes
         fields = (
             "name", "brand", "size", "purchase_price",
-            "predicted_sale_price", "sold_price", "cloth_type",
+            "predicted_sale_price", "sold_price", "condition", "cloth_type",
             "description", "marketplaces", "photo"
             )
 

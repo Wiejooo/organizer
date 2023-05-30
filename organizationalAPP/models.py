@@ -38,6 +38,7 @@ class Clothes(models.Model):
     purchase_price = models.FloatField(blank=False, default=0)
     predicted_sale_price = models.FloatField(blank=False, default=0)
     sold_price = models.FloatField(blank=False, default=0)
+    condition = models.IntegerField(blank=False, null=False, default=5)
     description = models.TextField(default="", blank=True)
     photo = models.ImageField(upload_to="photos", blank=True, null=True)
     marketplaces = models.ManyToManyField(Marketplaces, null=True, blank=True)
@@ -58,21 +59,30 @@ class Clothes(models.Model):
         """Funkcja do generowania opisów"""
 
         return f"""
-FOLLOW MY SHOP AND FEEL FREE TO FAVORITE LISTINGS IF YOU LIKE REGULAR ITEM UPDATES AND PRICE DROPPERS \t
+FOLLOW MY SHOP AND FEEL FREE TO FAVORITE LISTINGS IF YOU LIKE REGULAR ITEM UPDATES AND PRICE DROPPERS
+        """
 
-Size {self.size}
-Recommend checking the measurements as sizes might occasionally vary
+    @property
+    def description_generator_2(self):
+        """Funkcja do generowania opisów"""
 
-Condition used, overall condition 810, wear is evident. Please look over all of the pictures.
+        return f"""
+Size {self.size} Recommend checking the measurements as sizes might occasionally vary
+Condition used, overall condition {self.condition}/10, wear is evident. Please look over all of the pictures.
 
 See also SIZE Measurements
 15 (39 cm) Chest
 44 (112 cm) Length
-12 (31 cm) Sleeve Length
+12 (31 cm) Sleeve Length"""
 
+    @property
+    def description_generator_3(self):
+        """Funkcja do generowania opisów"""
+
+        return f"""
 ___________________________________
 Accepting bids. updates to the goods every day.
 Tracked shipment from Poland to all countries.
 Always sending 48 hours after payment.
-Typically shipping takes 9 - 16 business days to arrive.
-        """
+Typically shipping takes 9 - 16 business days to arrive. {self.marketplaces}
+"""

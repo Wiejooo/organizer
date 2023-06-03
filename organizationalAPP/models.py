@@ -3,15 +3,15 @@ from django.template.defaultfilters import slugify
 
 
 class Sizes(models.Model):
-    size_type = models.CharField(max_length=64, blank=False)
+    type = models.CharField(max_length=64, blank=False)
 
     def __str__(self):
-        return self.size_type
+        return self.type
 
 
 class ClothType(models.Model):
     type = models.CharField(max_length=64, blank=False)
-    size = models.ForeignKey(Sizes, null=True, on_delete=models.SET_NULL)
+    measurement = models.ForeignKey(Sizes, null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.type
@@ -49,7 +49,7 @@ class Clothes(models.Model):
     condition = models.IntegerField(blank=False, null=False, default=5)
     description = models.TextField(default="", blank=True)
     photo = models.ImageField(upload_to="photos", blank=True, null=True)
-    marketplaces = models.ManyToManyField(Marketplaces, null=True, blank=True)
+    marketplaces = models.ManyToManyField(Marketplaces, blank=True)
     cloth_type = models.ForeignKey(ClothType, null=True, on_delete=models.SET_NULL)
     cloth_sub_type = models.ForeignKey(ClothSubType, null=True, on_delete=models.SET_NULL)
     sell_statute = models.BooleanField("Sold", default=False)

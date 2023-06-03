@@ -1,8 +1,8 @@
 from typing import Any, Dict
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from organizationalAPP.forms import AddForm, AddTypeForm, AddSubTypeForm
-from organizationalAPP.models import Clothes, ClothType, ClothSubType
+from organizationalAPP.forms import AddForm, AddTypeForm, AddSubTypeForm, AddMeasurementsForm
+from organizationalAPP.models import Clothes, ClothType, ClothSubType, Sizes
 from organizationalAPP.forms import ClothesForm
 from organizationalAPP.filters import ProductFilter
 from django.db.models import Sum
@@ -100,6 +100,14 @@ class AddSubTypeView(CreateView):
     model = ClothSubType
     template_name = "add_cloth_sub_type.html"
     form_class = AddSubTypeForm
+    success_url = "/notebook/wardrobe"
+
+class AddMeasurementsView(CreateView):
+    """Dodanie wymiaru ubrań"""
+
+    model = Sizes
+    template_name = "add_measurements.html"
+    form_class = AddMeasurementsForm
     success_url = "/notebook/wardrobe"
 
 class ClothEditView(UpdateView):

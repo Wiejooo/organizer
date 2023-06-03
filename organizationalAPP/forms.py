@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 
-from organizationalAPP.models import Clothes, ClothType, ClothSubType
+from organizationalAPP.models import Clothes, ClothType, ClothSubType, Sizes
 
 
 class ClothesForm(ModelForm):
@@ -70,3 +70,16 @@ class AddSubTypeForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AddSubTypeForm, self).__init__(*args, **kwargs)
         self.fields["type"].label = "New sub-type"
+
+class AddMeasurementsForm(forms.ModelForm):
+    """Form dodania wymiaru ubrania"""
+
+    class Meta:
+        model = Sizes
+        fields = ("type",)
+
+        widgets = {"type": forms.TextInput(attrs={"class": "form-control"})}
+
+    def __init__(self, *args, **kwargs):
+        super(AddMeasurementsForm, self).__init__(*args, **kwargs)
+        self.fields["type"].label = "New measurements"

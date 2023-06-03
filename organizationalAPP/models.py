@@ -2,8 +2,16 @@ from django.db import models
 from django.template.defaultfilters import slugify
 
 
+class Sizes(models.Model):
+    size_type = models.CharField(max_length=64, blank=False)
+
+    def __str__(self):
+        return self.size_type
+
+
 class ClothType(models.Model):
     type = models.CharField(max_length=64, blank=False)
+    size = models.ForeignKey(Sizes, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.type

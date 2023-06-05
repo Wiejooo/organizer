@@ -125,3 +125,11 @@ class ClothDeleteView(DeleteView):
     model = Clothes
     template_name = "delete_cloth.html"
     success_url = "/notebook/wardrobe"
+
+
+class TypeListView(ListView):
+    """Lista typów ubrać"""
+
+    model = ClothType
+    template_name = "type_list.html"
+    context_object_name = "types"

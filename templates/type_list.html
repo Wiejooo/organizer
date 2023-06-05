@@ -1,0 +1,20 @@
+{% extends 'block.html' %}
+{% load static %}
+
+{% block head %}
+
+<link rel="stylesheet" href="{% static 'wardrobe-table.css' %}">
+
+
+{% endblock %}
+{% block title %} Cloth type list {% endblock %}
+
+{% block page %}
+<div class="content">
+    <h1>Cloth type list:</h1>
+    {% for type in types %}
+    <a>{{ type.type }}</a>
+    {% endfor %}
+</div>
+
+{% endblock %}

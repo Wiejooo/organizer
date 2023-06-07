@@ -61,6 +61,9 @@ class ClothDetailView(DetailView):
     template_name = "detail.html"
     context_object_name = "cloth"
 
+    def get_context_data(self, **kwargs):
+        mea = ClothType.objects.all()
+        return super().get_context_data(**kwargs), {'mea':mea}
 
 
 class TypeListView(ListView):

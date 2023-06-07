@@ -6,3 +6,15 @@ a{
     border-bottom: 1px solid aqua;
     padding-bottom: 15px;
 }
+.just_type{
+    width: 100%;
+    float: left;
+}
+.all_sizes{
+    float: right;
+    width: 40%;
+    border: 1px solid greenyellow;
+}
+.input{
+    float: left;
+}

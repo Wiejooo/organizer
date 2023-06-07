@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'add.css' %}">
+<link rel="stylesheet" href="{% static 'type-detail.css' %}">
 {% endblock %}
 
 {% block title %} Type details {% endblock %}
@@ -10,6 +10,17 @@
 {% block page %}
 <div class="content">
     <h1> Detail type: </h1>
-    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="direction-button-area">
+            <input type="submit" value="Edit">
+            <div class="buttons">
+                <form class="action-button-1" action="{% url 'type_list' %}">
+                    <button type="submit">Go back</button>
+                </form>
+            </div>
+        </div>
+    </form>
 </div>
 {% endblock %}

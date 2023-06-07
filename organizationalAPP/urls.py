@@ -12,7 +12,6 @@ urlpatterns = [
     path("add_measurements/", views.AddMeasurementsView.as_view(), name="add_measurements"),
     path("type_list/", views.TypeListView.as_view(), name="type_list"),
     path("<slug:slug>/type_detail/", views.TypeDetailView.as_view(), name="type_detail"),
-    # path("<slug:slug>/", views.TypeListView.as_view(), name="type_list"),
     path("<slug:slug>/edit", views.ClothEditView.as_view(), name="edit"),
     path("<slug:slug>/delete", views.ClothDeleteView.as_view(), name="delete"),
     path("<slug:slug>/", views.ClothDetailView.as_view(), name="cloth-detail"),

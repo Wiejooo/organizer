@@ -1,7 +1,7 @@
 from typing import Any, Dict
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from organizationalAPP.forms import AddForm, AddTypeForm, AddSubTypeForm, AddMeasurementsForm
+from organizationalAPP.forms import AddForm, AddTypeForm, AddSubTypeForm, AddMeasurementsForm, EditTypeSizesForm
 from organizationalAPP.models import Clothes, ClothType, ClothSubType, Sizes
 from organizationalAPP.forms import ClothesForm
 from organizationalAPP.filters import ProductFilter
@@ -55,14 +55,12 @@ class WardrobeTableView(ListView):
 
 
 class ClothDetailView(DetailView):
-    """Szczegóły ubrania kafelki"""
+    """Szczegóły ubrania"""
 
     model = Clothes
     template_name = "detail.html"
     context_object_name = "cloth"
 
-    def get_context_data(self, **kwargs):
-        return super().get_context_data(**kwargs)
 
 
 class TypeListView(ListView):
@@ -75,18 +73,21 @@ class TypeListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         types = ClothType.objects.all()
+        sizes = Sizes.objects.all()
         context = {
-            'types':types
+            'types':types,
+            'sizes':sizes
             }
         return context
 
 
-class TypeDetailView(DetailView):
-    """Szczegóły typu ubrania"""
+class TypeDetailView(UpdateView):
+    """Edycja """
 
     model = ClothType
     template_name = "type_detail.html"
-    context_object_name = "types"
+    form_class = EditTypeSizesForm
+    success_url = "/notebook/type_list"
 
 
 class ClothDetailTableView(DetailView):

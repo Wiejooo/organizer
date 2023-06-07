@@ -16,6 +16,13 @@ class ClothesForm(ModelForm):
             )
 
 
+class EditTypeSizesForm(ModelForm):
+    """Form do edycji rozmiarów w typie"""
+    class Meta:
+        model = ClothType
+        fields = ("measurement",)
+
+
 class AddForm(forms.ModelForm):
     """Form dodania nowego ubrania"""
 
@@ -83,3 +90,4 @@ class AddMeasurementsForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(AddMeasurementsForm, self).__init__(*args, **kwargs)
         self.fields["type"].label = "New measurements"
+

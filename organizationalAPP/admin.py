@@ -14,7 +14,7 @@ class ClothesAdmin(admin.ModelAdmin):
 
 @admin.register(models.ClothType)
 class ClothTypesAdmin(admin.ModelAdmin):
-    fields = ['type', 'measurement']
+    fields = ['type', 'measurement', 'slug']
 
 
 @admin.register(models.Marketplaces)

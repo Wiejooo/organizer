@@ -3,7 +3,7 @@
 
 {% block head %}
 
-<link rel="stylesheet" href="{% static 'wardrobe-table.css' %}">
+<link rel="stylesheet" href="{% static 'type-list.css' %}">
 
 
 {% endblock %}
@@ -12,9 +12,17 @@
 {% block page %}
 <div class="content">
     <h1>Cloth type list:</h1>
-    {% for type in types %}
-    <a>{{ type.type }}</a>
-    {% endfor %}
+    <div class="just_type">
+        {% for type in types %}
+        <a href="{% url 'type_detail' slug=type.slug %}">{{ type.type }}</a>
+        <div class="just_measurement">
+            Measurement:
+            {% for mea in type.measurement.all %}
+            <a>|{{ mea }}</a>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}

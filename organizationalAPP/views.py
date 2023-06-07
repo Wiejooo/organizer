@@ -65,6 +65,30 @@ class ClothDetailView(DetailView):
         return super().get_context_data(**kwargs)
 
 
+class TypeListView(ListView):
+    """Lista typów ubrać"""
+
+    model = ClothType
+    template_name = "type_list.html"
+    context_object_name = "types"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        types = ClothType.objects.all()
+        context = {
+            'types':types
+            }
+        return context
+
+
+class TypeDetailView(DetailView):
+    """Szczegóły typu ubrania"""
+
+    model = ClothType
+    template_name = "type_detail.html"
+    context_object_name = "types"
+
+
 class ClothDetailTableView(DetailView):
     """Szczegóły ubrania tabela"""
 
@@ -126,10 +150,3 @@ class ClothDeleteView(DeleteView):
     template_name = "delete_cloth.html"
     success_url = "/notebook/wardrobe"
 
-
-class TypeListView(ListView):
-    """Lista typów ubrać"""
-
-    model = ClothType
-    template_name = "type_list.html"
-    context_object_name = "types"

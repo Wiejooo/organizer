@@ -11,7 +11,13 @@ class Sizes(models.Model):
 
 class ClothType(models.Model):
     type = models.CharField(max_length=64, blank=False)
-    measurement = models.ForeignKey(Sizes, null=True, blank=True, on_delete=models.SET_NULL)
+    measurement = models.ManyToManyField(Sizes, null=True, blank=True)
+    slug = models.SlugField(null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        return super().save(*args, **kwargs)
 
     def __str__(self):
         return self.type

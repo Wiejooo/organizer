@@ -35,14 +35,18 @@
 
     <div class="cloth-details">
         <h1>Measurements:</h1>
-        <p><b>Size:</b> {{ cloth.size }}</p>
+        <div class="measurement">
+            <b>Size:</b> {{ cloth.size }}
+            {% for mea in cloth.cloth_type.measurement.all %}
+            <b>{{ mea }}</b>: {{ mea.cm_value }} cm
+            {% endfor %}
+        </div>
     </div>
-
     <div class="desc-to-page">
         <br>Description for sell: <br>
         <div class="description-field" id="desc-block">
             {{ cloth.description_generator }}<br><br>
-            {{ cloth.description_generator_2 }}<br>
+            {{ cloth.description_generator_2 }}{% for mea in cloth.cloth_type.measurement.all %}{{ mea.overall }} ({{ mea.cm_value }} cm) {{ mea }} {% endfor %}<br>
             {{ cloth.description_generator_3 }}
         </div>
         <button id="copy-button">Copy</button>

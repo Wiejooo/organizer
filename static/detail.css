@@ -29,3 +29,6 @@ h1{
     padding: 13px;
     text-align: center;
 }
+.measurement{
+    position: absolute; left: auto;
+}

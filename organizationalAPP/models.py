@@ -4,6 +4,8 @@ from django.template.defaultfilters import slugify
 
 class Sizes(models.Model):
     type = models.CharField(max_length=64, blank=False)
+    cm_value = models.IntegerField(blank=False, default=0)
+    overall = models.IntegerField(blank=False, default=0)
 
     def __str__(self):
         return self.type
@@ -46,7 +48,7 @@ class Clothes(models.Model):
     ]
 
     name = models.CharField(max_length=40, blank=False)
-    slug = models.SlugField(null=True)
+    slug = models.SlugField(null=True, unique=True)
     brand = models.CharField(max_length=64, blank=True)
     size = models.CharField(max_length=3, choices=what_size, null=True, blank=True)
     purchase_price = models.FloatField(blank=False, default=0)
@@ -85,9 +87,7 @@ Size {self.size} Recommend checking the measurements as sizes might occasionally
 Condition used, overall condition {self.condition}/10, wear is evident. Please look over all of the pictures.
 
 See also SIZE Measurements
-15 (39 cm) Chest
-44 (112 cm) Length
-12 (31 cm) Sleeve Length"""
+"""
 
     @property
     def description_generator_3(self):

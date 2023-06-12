@@ -24,4 +24,4 @@ class MarketplacesAdmin(admin.ModelAdmin):
 
 @admin.register(models.Sizes)
 class SizeAdmin(admin.ModelAdmin):
-    fields = ['type']
+    fields = ['type', 'cm_value', 'overall']

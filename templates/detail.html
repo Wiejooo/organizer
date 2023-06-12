@@ -36,9 +36,9 @@
     <div class="cloth-details">
         <h1>Measurements:</h1>
         <div class="measurement">
-            <b>Size:</b> {{ cloth.size }}
+            <b>Size:</b> {{ cloth.size }}<br>
             {% for mea in cloth.cloth_type.measurement.all %}
-            <b>{{ mea }}</b>: {{ mea.cm_value }} cm
+            <b>{{ mea }}</b>: {{ mea.cm_value }} cm<br>
             {% endfor %}
         </div>
     </div>

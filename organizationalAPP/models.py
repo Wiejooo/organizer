@@ -47,7 +47,7 @@ class Clothes(models.Model):
         ("XL", "XL"),
     ]
 
-    name = models.CharField(max_length=40, blank=False)
+    name = models.CharField(max_length=40, blank=False, unique=True)
     slug = models.SlugField(null=True, unique=True)
     brand = models.CharField(max_length=64, blank=True)
     size = models.CharField(max_length=3, choices=what_size, null=True, blank=True)

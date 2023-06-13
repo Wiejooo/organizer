@@ -13,7 +13,7 @@ class Sizes(models.Model):
 
 class ClothType(models.Model):
     type = models.CharField(max_length=64, blank=False)
-    measurement = models.ManyToManyField(Sizes, null=True, blank=True)
+    measurement = models.ManyToManyField(Sizes, blank=True)
     slug = models.SlugField(null=True)
 
     def save(self, *args, **kwargs):
@@ -67,6 +67,8 @@ class Clothes(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
+            self.slug = slugify(self.name)
+        elif self.slug:
             self.slug = slugify(self.name)
         return super().save(*args, **kwargs)
 

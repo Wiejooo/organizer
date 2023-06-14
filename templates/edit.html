@@ -14,7 +14,7 @@ crossorigin="anonymous"> -->
     <h1>Editing product</h1>
 
     <div class="edit-cloth-container">
-        <form method="post">
+        <form method=POST enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <div class="direction-button-area">

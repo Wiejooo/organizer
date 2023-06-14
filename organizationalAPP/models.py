@@ -56,7 +56,7 @@ class Clothes(models.Model):
     sold_price = models.FloatField(blank=False, default=0)
     condition = models.IntegerField(blank=False, null=False, default=5)
     description = models.TextField(default="", blank=True)
-    photo = models.ImageField(upload_to="photos", blank=True, null=True)
+    photo = models.ImageField(upload_to="photos/", blank=True, null=True)
     marketplaces = models.ManyToManyField(Marketplaces, blank=True)
     cloth_type = models.ForeignKey(ClothType, null=True, on_delete=models.SET_NULL)
     cloth_sub_type = models.ForeignKey(ClothSubType, null=True, on_delete=models.SET_NULL)

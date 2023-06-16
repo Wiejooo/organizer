@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Sizes(models.Model):
@@ -54,7 +55,10 @@ class Clothes(models.Model):
     purchase_price = models.FloatField(blank=False, default=0)
     predicted_sale_price = models.FloatField(blank=False, default=0)
     sold_price = models.FloatField(blank=False, default=0)
-    condition = models.IntegerField(blank=False, null=False, default=5)
+    condition = models.IntegerField(blank=False, null=False, default=5, validators=[
+        MaxValueValidator(10),
+        MinValueValidator(0)
+    ])
     description = models.TextField(default="", blank=True)
     photo = models.ImageField(upload_to="photos/", blank=True, null=True)
     marketplaces = models.ManyToManyField(Marketplaces, blank=True)

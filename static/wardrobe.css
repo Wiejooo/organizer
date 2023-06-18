@@ -52,13 +52,44 @@ h2, a {
     float: left;
 }
 .switch-button {
-    color: #ffe28d;
-    margin-right: 30px;
+    display: inline-block;
+    color: black;
+    width: 49%;
+    background-color: #ffe28d;
     text-decoration: none;
+    border-radius: 30px;
+    border: 2px solid #f8c21f;
 }
 .switch-button:hover{
-    background-color: black;
+    background-color: #f8c21f;
 }
 .filter_form{
-    color: white;
+    text-align: center;
+    color: #f8c21f;
+}   
+.switch-look{
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+input{
+    background-color: #ffe28d;
+}
+select{
+    background-color: #ffe28d;
+}
+.direction-button{
+    color: #ffe28d;
+    text-decoration: none;
+    margin-right: 15px;
+    border: 2px solid #ffe28d;
+    padding: 3px;
+    background-color: #013508;
+}
+.direction-button:hover{
+    background-color: #f8c21f;
+    color: black;
+    border-color: #f8c21f;
 }

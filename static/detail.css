@@ -31,3 +31,16 @@ h1{
 .measurement{
     position: absolute; left: auto;
 }
+.direction-button{
+    color: #ffe28d;
+    text-decoration: none;
+    margin-right: 15px;
+    border: 2px solid #ffe28d;
+    padding: 3px;
+    background-color: #013508;
+}
+.direction-button:hover{
+    background-color: #f8c21f;
+    color: black;
+    border-color: #f8c21f;
+}

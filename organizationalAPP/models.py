@@ -19,7 +19,9 @@ class ClothType(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.name)
+            self.slug = slugify(self.type)
+        elif self.slug:
+            self.slug = slugify(self.type)
         return super().save(*args, **kwargs)
 
     def __str__(self):
@@ -41,17 +43,20 @@ class Marketplaces(models.Model):
 
 class Clothes(models.Model):
     what_size = [
+        ('XS', 'XS'),
         ("S", "S"),
         ("M", "M"),
         ("L", "L"),
         ("X", "X"),
         ("XL", "XL"),
+        ("XXL", "XXL"),
+        ("XXXL", "XXXL"),
     ]
 
     name = models.CharField(max_length=40, blank=False, unique=True)
     slug = models.SlugField(null=True, unique=True)
     brand = models.CharField(max_length=64, blank=True)
-    size = models.CharField(max_length=3, choices=what_size, null=True, blank=True)
+    size = models.CharField(max_length=5, choices=what_size, null=True, blank=True)
     purchase_price = models.FloatField(blank=False, default=0)
     predicted_sale_price = models.FloatField(blank=False, default=0)
     sold_price = models.FloatField(blank=False, default=0)

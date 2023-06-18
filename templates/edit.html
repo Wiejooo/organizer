@@ -18,7 +18,7 @@ crossorigin="anonymous"> -->
             {% csrf_token %}
             {{ form.as_p }}
             <div class="direction-button-area">
-                <input type="submit" value="Edit">
+                <input type="submit" value="Submit">
                 <div class="buttons">
                     <form class="action-button-1" action="{% url 'wardrobe' %}">
                         <button type="submit">To tiles</button>

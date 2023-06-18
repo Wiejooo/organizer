@@ -49,21 +49,21 @@
             {{ cloth.description_generator_2 }}{% for mea in cloth.cloth_type.measurement.all %}{{ mea.overall }} ({{ mea.cm_value }} cm) {{ mea }} {% endfor %}<br>
             {{ cloth.description_generator_3 }}
         </div>
-        <button id="copy-button">Copy</button>
+        <button class="direction-button" id="copy-button">Copy</button>
     </div>
     <div style="clear:both"></div>
     <div class="buttons">
         <form class="action-button-1" action="{% url 'edit' slug=cloth.slug %}">
-            <button type="submit">Edit</button>
+            <button class="direction-button" type="submit">Edit</button>
         </form>
         <form class="action-button-2" action="{% url 'delete' slug=cloth.slug %}">
-            <button type="submit">Delete</button>
+            <button class="direction-button" type="submit">Delete</button>
         </form>
         <form class="action-button-3" action="{% url 'wardrobe' %}">
-            <button type="submit">To tiles</button>
+            <button class="direction-button" type="submit">To tiles</button>
         </form>
-        <form class="action-button-4" action="{% url 'wardrobe_table' %}">
-            <button type="submit">To table</button>
+        <form action="{% url 'wardrobe_table' %}">
+            <button class="direction-button" type="submit">To table</button>
         </form>
     </div>
 </div>

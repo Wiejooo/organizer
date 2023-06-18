@@ -9,13 +9,14 @@
 
 {% block page %}
 <div class="content">
-    <a href="{% url 'wardrobe' %}" class="switch-button">Tiles</a>
-    <a href="{% url 'wardrobe_table' %}" class="switch-button">Table</a><br>
-
+    <div class="switch-look">
+        <a href="{% url 'wardrobe' %}" class="switch-button">Tiles</a>
+        <a href="{% url 'wardrobe_table' %}" class="switch-button">Table</a><br>
+    </div>
     <div class="filter_form">
         <form method="GET">
         {{ filter.form }}
-            <button type="submit" class="button">Submit</button>
+            <button type="submit" class="direction-button">Submit</button>
         </form>
     </div>
 

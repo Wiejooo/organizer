@@ -14,7 +14,7 @@
     <form method="post">{% csrf_token %}
         <h2>Are you sure to remove {{ object.name }}?</h2>
         <div class= "direction-button-area">
-            <input type="submit" value="Yes">
+            <input class="direction-button" type="submit" value="Yes">
             <a class="direction-button" href="{% url 'wardrobe' %}">Go back tiles</a>
             <a class="direction-button" href="{% url 'wardrobe_table' %}">Go back table</a>
         </div>

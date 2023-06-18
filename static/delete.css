@@ -10,10 +10,10 @@ h2{
     margin-right: 15px;
     border: 2px solid #ffe28d;
     padding: 3px;
+    background-color: #013508;
 }
 .direction-button:hover{
-    background-color: black;
-}
-.direction-button-area{
-    margin-top: 10px;
+    background-color: #f8c21f;
+    color: black;
+    border-color: #f8c21f;
 }

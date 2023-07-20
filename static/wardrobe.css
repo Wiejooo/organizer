@@ -66,7 +66,7 @@ h2, a {
 .filter_form{
     text-align: center;
     color: #f8c21f;
-}   
+}
 .switch-look{
     margin-bottom: 5px;
     width: 100%;
@@ -77,8 +77,17 @@ h2, a {
 input{
     background-color: #ffe28d;
 }
+input:focus{
+    outline: none;
+    border: 2px solid #f8c21f;
+}
 select{
     background-color: #ffe28d;
+    border: 2px solid transparent;
+}
+select:focus{
+    outline: none;
+    border: 2px solid #f8c21f;
 }
 .direction-button{
     color: #ffe28d;
@@ -92,4 +101,6 @@ select{
     background-color: #f8c21f;
     color: black;
     border-color: #f8c21f;
+    border: 2px solid #ffe28d;
+    font-weight: bold;
 }

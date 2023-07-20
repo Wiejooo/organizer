@@ -43,4 +43,6 @@ h1{
     background-color: #f8c21f;
     color: black;
     border-color: #f8c21f;
+    border: 2px solid #ffe28d;
+    font-weight: bold;
 }

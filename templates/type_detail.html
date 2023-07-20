@@ -10,14 +10,16 @@
 {% block page %}
 <div class="content">
     <h1> Detail type: </h1>
-    <form method="post">
+    <form  method="post">
+        <div class="select-form">
         {% csrf_token %}
         {{ form.as_p }}
+        </div>
         <div class="direction-button-area">
-            <input type="submit" value="Edit">
+            <input class="direction-button" type="submit" value="Edit">
             <div class="buttons">
-                <form class="action-button-1" action="{% url 'type_list' %}">
-                    <button type="submit">Go back</button>
+                <form action="{% url 'type_list' %}">
+                    <button class="direction-button" type="submit">Go back</button>
                 </form>
             </div>
         </div>

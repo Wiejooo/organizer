@@ -14,4 +14,25 @@
 .switch-button:hover{
     background-color: black;
 }
-
+.switch-button {
+    display: inline-block;
+    color: black;
+    height: 22px;
+    width: 46%;
+    background-color: #ffe28d;
+    text-decoration: none !important;
+    border-radius: 30px;
+    border: 2px solid #f8c21f;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.switch-button:hover{
+    background-color: #f8c21f;
+}
+a:hover{
+    text-decoration: none !important;
+    color: black !important;
+}
+*, ::after, ::before {
+    box-sizing: content-box !important;
+}

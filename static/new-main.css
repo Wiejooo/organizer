@@ -29,7 +29,7 @@ body{
 }
 .nav-global{
     width: 70%;
-    height: 35px;
+    height: 35px !important;
     margin: 0 auto;
     padding: 3px 0;
     background-color: #ffe28d;

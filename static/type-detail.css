@@ -1,3 +1,53 @@
 a{
     color: aqua;
 }
+
+.direction-button{
+    color: #ffe28d;
+    text-decoration: none;
+    margin-right: 15px;
+    border: 2px solid #ffe28d;
+    padding: 3px;
+    background-color: #013508;
+    float: left;
+}
+
+.direction-button:hover{
+    background-color: #f8c21f;
+    color: black;
+    border-color: #f8c21f;
+    border: 2px solid #ffe28d;
+    font-weight: bold;
+}
+
+select{
+    background-color: #ffe28d;
+    border: 2px solid transparent;
+    margin-left: 25px;
+}
+select:focus{
+    outline: none;
+    border: 2px solid #f8c21f;
+    color: black;
+}
+select[multiple] option:checked {
+    background: #f8c21f linear-gradient(0deg, #f8c21f 0%, #f8c21f 100%);
+    color: black;
+    font-weight: bold;
+}
+.select-form{
+    border: 2px solid #ffe28d;
+    border-radius: 10px;
+    width: 25%;
+}
+label{
+    margin-left: 10px;
+    align-items: center;
+}
+.direction-button-area{
+    margin-top: 10px;
+}
+label {
+    float: left;
+    margin-left: 15px;
+}

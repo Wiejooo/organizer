@@ -35,7 +35,7 @@ class WardrobeView(ListView):
     """Strona szafy kafelki"""
 
     model = Clothes
-    template_name = "wardrobe.html"
+    template_name = "wardrobe_TEST.html"
     context_object_name = "clothes"
 
     def get_context_data(self, **kwargs):

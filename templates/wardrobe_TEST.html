@@ -1,8 +1,8 @@
-{% extends 'block.html' %}
+{% extends 'block_TEST.html' %}
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'wardrobe.css' %}">
+<link rel="stylesheet" href="{% static 'wardrobe_TEST.css' %}">
 {% endblock %}
 
 {% block title %} TEST {% endblock %}
@@ -15,8 +15,10 @@
     </div>
     <div class="filter_form">
         <form method="GET">
-        {{ filter.form }}
-            <button type="submit" class="direction-button">Submit</button>
+            <div class="inputBoxTEST">
+                {{ filter.form }}
+            </div>
+            <button type="submit" style="--clr:#1644C9"><span>Submit</span><i></i></button>
         </form>
     </div>
 
@@ -30,4 +32,14 @@
         {% endfor %}
     </div>
 </div>
+<!-- <div class="inputBox">
+    <input type="text" required="required">
+    <span>Name</span>
+</div> -->
+<form method="GET">
+    <div class="inputBox">
+        {{ filter.form }}
+    </div>
+    <button type="submit" style="--clr:#1644C9"><span>Submit</span><i></i></button>
+</form>
 {% endblock %}

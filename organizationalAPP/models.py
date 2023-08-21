@@ -1,6 +1,7 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django import forms
 
 
 class Sizes(models.Model):

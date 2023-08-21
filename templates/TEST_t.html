@@ -1,41 +1,35 @@
-<!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %}</title>
-    {% block head %}{% endblock %}
-    <link rel="stylesheet" href="{% static 'TEST_BLOCK.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo.png' %}"/> -->
+<link rel="stylesheet" href="{% static 'TEST_s.css' %}">
 </head>
+
+<!-- <div class="inputBox">
+    <input type="text" required="required" name="name__icontains" id="id_name__icontains">
+    <label for="id_name__icontains">Name contains:</label>
+</div>
+<div class="inputBox">
+    <input type="text" required="required" name="brand__icontains" id="id_brand__icontains">
+    <label for="id_brand__icontains">Brand contains:</label>
+</div> -->
 <body>
-    <div class="wrapper">
-        <div class="header">
-            <div class="logo">
-                <img src="{% static 'images/logo.png' %}" class="pic-logo" style="float:left;">
-                <div class="text-logo">Organizator ciuchów</div>
-                <div style="clear:both;"></div>
-            </div>
-        </div>
-    </div>
     <div class="navigation">
         <ul>
             <li class="list active">
-                <a href="{% url 'main_page' %}">
+                <a href="#">
                     <span class="icon">
                         <ion-icon name="home-outline"></ion-icon>
                     </span>
-                    <span class="text">MAIN</span>
+                    <span class="text">Page 1</span>
                 </a>
             </li>
             <li class="list">
-                <a href="{% url 'wardrobe' %}">
+                <a href="#">
                     <span class="icon">
                         <ion-icon name="cube-outline"></ion-icon>
                     </span>
-                    <span class="text">WARDROBE</span>
+                    <span class="text">Page 2</span>
                 </a>
             </li>
             <li class="list">
@@ -43,7 +37,7 @@
                     <span class="icon">
                         <ion-icon name="add-outline"></ion-icon>
                     </span>
-                    <span class="text">ADD</span>
+                    <span class="text">Page 3</span>
                 </a>
             </li>
             <li class="list">
@@ -51,10 +45,19 @@
                     <span class="icon">
                         <ion-icon name="list-outline"></ion-icon>
                     </span>
-                    <span class="text">TYPE LIST</span>
+                    <span class="text">Page 4</span>
                 </a>
             </li>
-            <div class="indicator"></div>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="list-outline"></ion-icon>
+                    </span>
+                    <span class="text">Page 4</span>
+                </a>
+            </li>
+            <div class="indicator">
+            </div>
         </ul>
     </div>
     <script>
@@ -69,10 +72,5 @@
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <div class="content">
-    </div>
-    {% block page %}
-    {% endblock %}
-    </div>
 </body>
 </html>

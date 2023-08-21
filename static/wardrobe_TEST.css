@@ -58,7 +58,7 @@ h2, a {
     background-color: #ffe28d;
     text-decoration: none;
     border-radius: 30px;
-    border: 2px solid #f8c21f;
+    border: 2px solid #ffe28d;
 }
 .switch-button:hover{
     background-color: #f8c21f;
@@ -69,7 +69,7 @@ h2, a {
 }
 .filter_form{
     text-align: center;
-    color: #fff;
+    color: #ffe28d;
 }
 .switch-look{
     margin-bottom: 5px;

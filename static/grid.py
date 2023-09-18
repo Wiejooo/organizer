@@ -3,9 +3,13 @@ from tkinter import ttk
 
 root = tk.Tk()
 
+for_now = '''
+    13/12/WW/0 13/12/WW/1 13/12/WW/2
+'''
+
 list_of_orders = []
 
-list_of_no_orders = list_of_orders.copy()
+list_of_no_orders = []
 
 list__of_own_orders = []
 
@@ -14,29 +18,49 @@ list__of_own_orders = []
 
 
 def show_value_left_mid():
+    # Changing input in to the list
     value = entry_orders_list.get()
-    list_of_orders.append(value)
-    for order in list_of_orders:
-        order_number_left = ttk.Label(left_data, text=order)
-        # order_number.grid(row=2, column=0, sticky='WN')
-        order_number_left.pack()
+    value = value.split(' ')
 
-    for order in list_of_orders:
-        order_number_mid = ttk.Label(mid_area, text=order, width=50)
-        order_number_mid.pack()
+    for order in value:
+        list_of_orders.append(order)
 
+    # Showing data on the left
+    one_sentence = ''
+    for part in list_of_orders:
+        one_sentence = one_sentence + part + '\n'
+    left_data.configure(text=one_sentence)
 
-def test():
-    current_left_side = left_data.cget('text')
-    input_value = entry_orders_list.get()
-    update_order = current_left_side + input_value
-    left_data.configure(text=update_order)
+    # Updating description on the left
+    number_of_orders = len(list_of_orders)
+    description_text_left.configure(text=f'Number of orders: {number_of_orders}')
+
+    # Showing data on the mid
+    for order in value:
+        list_of_no_orders.append(order)
+
+    one_mid_sentence = ''
+    for part in list_of_no_orders:
+        one_mid_sentence = one_mid_sentence + part + '\n'
+    mid_label_area.configure(text=one_mid_sentence)
 
 
 def show_value_on_right():
-    value = entry_order.get()
-    order_number = ttk.Label(root, text=value)
-    order_number.grid(row=2, column=2, sticky='WN')
+    current_right_side = right_data.cget('text')
+    input_value = entry_order.get()
+    if input_value in list_of_no_orders:
+        new_text = current_right_side + input_value + ' - JEST'
+        # Updating mid area
+        list_of_no_orders.remove(input_value)
+        one_mid_sentence = ''
+        for part in list_of_no_orders:
+            one_mid_sentence = one_mid_sentence + part + '\n'
+        mid_label_area.configure(text=one_mid_sentence)
+
+    else:
+        new_text = current_right_side + input_value + ' - NIE MA'
+    right_data.configure(text=f'{new_text}\n')
+
 
 
 def clear_left_value():
@@ -53,23 +77,8 @@ s.configure('label_area.TFrame', background='#839de9')
 s.configure('button_area.TFrame', background='#CE18C9')
 s.configure('input_area.TFrame', background='#cdced2')
 s.configure('show_area.TFrame', background='#686868')
-# s.configure('left_data.TFrame', background='#b1b2b5')
 s.configure('Label.TLabel', background='#839de9', font=('Helventica', 14))
-s.configure('left_data.TLabel',
-            # background="#4A4A48",
-            # font=('Helvetica', 12),
-            # foreground="white",
-            # wraplength=170,
-            # anchor="nw",
-            # padding=(3, 3, 3, 3)
-            )
-
-# ------------------------ GRID CONFIGURATIONS
-# root.columnconfigure(0, weight=1)
-# root.rowconfigure(0, weight=1)
-#
-# root.columnconfigure(1, weight=1)
-# root.rowconfigure(1, weight=1)
+s.configure('test.TFrame', highlightbackground="blue", highlightthickness=2)
 
 # ------------------------ WIDGET
 # --- title
@@ -79,6 +88,7 @@ title_area.grid(row=0, column=0, columnspan=3, sticky='NSEW')
 
 title = ttk.Label(title_area, text='Welcome User', style='Label.TLabel')
 title.pack(padx=10, pady=10)
+
 
 # --- left side
 left_side_area = ttk.Frame(root, width=300, height=100, style='input_area.TFrame')
@@ -93,7 +103,7 @@ entry_orders_list = ttk.Entry(left_side_area, width=31)
 entry_orders_list.grid(row=1, column=0, rowspan=1, padx=10, pady=10, sticky='NS')
 
 # buttons
-submit_button_left = ttk.Button(left_side_area, text='Submit', command=test)
+submit_button_left = ttk.Button(left_side_area, text='Submit', command=show_value_left_mid)
 submit_button_left.grid(row=1, column=1, padx=5)
 
 clear_button_left = ttk.Button(left_side_area, text='Clear')
@@ -101,20 +111,35 @@ clear_button_left['command'] = clear_left_value
 clear_button_left.grid(row=2, column=1, padx=5)
 
 # left side
-left_data = ttk.Label(left_side_area, text='QWERTY')
+left_data = ttk.Label(left_side_area, anchor='center')
 left_data.grid(row=3, column=0, columnspan=2, sticky='NSEW')
 
-# testtt = ttk.Label(left_side_area, text='100000')
-# testtt.grid(row=3, column=0,)
+# description
+description_left = ttk.Frame(root, width=10, height=10)
+description_left.grid(row=3, columnspan=1, sticky='NS')
+
+description_text_left = ttk.Label(description_left, text="Number of orders: 0")
+description_text_left.pack()
 
 
 # --- show mid area
 mid_area = ttk.Frame(root, width=300, height=400, style='show_area.TFrame')
 mid_area.grid(row=1, column=1, rowspan=2, sticky='NSEW')
 
+mid_label_area = ttk.Label(mid_area, width=45, anchor='center')
+mid_label_area.pack()
+
+# description
+description_mid = ttk.Frame(root, width=10, height=10)
+description_mid.grid(row=3, columnspan=3, sticky='NS')
+
+description_text_mid = ttk.Label(description_mid, text="You don't have these")
+description_text_mid.pack()
+
+
 # --- right area
-right_side_area = ttk.Frame(root, width=300, height=70, style='input_area.TFrame')
-right_side_area.grid(row=1, column=2, sticky='NS')
+right_side_area = ttk.Frame(root, width=300, height=100, style='input_area.TFrame')
+right_side_area.grid(row=1, column=2, rowspan=2, sticky='NS')
 
 # label
 title_right_side = ttk.Label(right_side_area, text='Entry number', background='#cdced2')
@@ -125,16 +150,14 @@ entry_order = ttk.Entry(right_side_area, width=31)
 entry_order.grid(row=1, column=0, rowspan=1, padx=10, pady=10, sticky='NS')
 
 # buttons
-submit_button_right = ttk.Button(right_side_area, text='Submit')
-submit_button_right['command'] = show_value_on_right
+submit_button_right = ttk.Button(right_side_area, text='Submit', command=show_value_on_right)
 submit_button_right.grid(row=1, column=1, padx=5)
 
-clear_button_right = ttk.Button(right_side_area, text='Clear')
-clear_button_right['command'] = clear_button_right
+clear_button_right = ttk.Button(right_side_area, text='Clear', command=clear_right_value)
 clear_button_right.grid(row=2, column=1, padx=5)
 
 # right side
-right_data = ttk.Frame(root, width=300, height=300, style='show_data_list.TFrame')
-right_data.grid(row=2, column=2, sticky='NS')
+right_data = ttk.Label(right_side_area, anchor='center')
+right_data.grid(row=3, column=0, columnspan=2, sticky='NSEW')
 
 root.mainloop()
